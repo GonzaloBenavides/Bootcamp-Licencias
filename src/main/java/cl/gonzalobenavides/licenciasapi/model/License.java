@@ -121,10 +121,10 @@ public class License {
 	protected void onCreate() {
 		this.createdAt = new Date();
 		
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		c.add(Calendar.YEAR, 5);
-		this.expiracion = c.getTime();
+//		Calendar c = Calendar.getInstance();
+//		c.setTime(new Date());
+//		c.add(Calendar.YEAR, 5);
+//		this.expiracion = c.getTime();
 	}
 	
 	@PreUpdate

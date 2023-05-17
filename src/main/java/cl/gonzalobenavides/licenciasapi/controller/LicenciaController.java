@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cl.gonzalobenavides.licenciasapi.model.License;
 import cl.gonzalobenavides.licenciasapi.model.Persona;
@@ -36,8 +38,15 @@ public class LicenciaController {
 		return "newPerson.jsp";
 	}
 	
+	@GetMapping("persona/{id}")
+	public String getPersona(@PathVariable("id") Long id,Model model) {
+		model.addAttribute("persona", mainService.findPersona(id));
+		return "person.jsp";
+	}
+	
 	@GetMapping("licencia/new")
-	public String newLicencia(@ModelAttribute("licencia") License licencia) {
+	public String newLicencia(@ModelAttribute("licencia") License licencia, Model model) {
+		model.addAttribute("personas", mainService.findAvailablePersonas());
 		return "newLicense.jsp";
 	}
 	
@@ -49,7 +58,7 @@ public class LicenciaController {
 		else
 			mainService.newPersona(persona);
 		
-		mainService.assignLicense();
+//		mainService.assignLicense();
 		return "redirect:/";
 	}
 	
@@ -63,7 +72,7 @@ public class LicenciaController {
 		else
 			mainService.newLicencia(licencia);
 		
-		mainService.assignLicense();
+//		mainService.assignLicense();
 		return "redirect:/";
 	}
 }

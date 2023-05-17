@@ -1,5 +1,6 @@
 package cl.gonzalobenavides.licenciasapi.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +38,16 @@ public class MainService {
 
 	public List<Persona> findAllPersonas(){
 		return personaRepository.findAll();
+	}
+	
+	public List<Persona> findAvailablePersonas(){
+		List<Persona> disponibles = new ArrayList<Persona>();
+		for(Persona p : this.findAllPersonas()) {
+			if(p.getLicencia() == null) {
+				disponibles.add(p);
+			}
+		}
+		return disponibles;
 	}
 
 	//==========LICENCIAS=========================

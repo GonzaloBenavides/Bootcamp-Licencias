@@ -28,7 +28,7 @@
 		<tbody>
 			<c:forEach var="p" items="${personas}">
 				<tr>
-					<td><c:out value="${p.nombre}" /></td>
+					<td><a href="persona/${p.id}"> <c:out value="${p.nombre}" /> </a></td>
 					<td><c:out value="${p.apellido}" /></td>
 					<td><c:out value="${p.licencia.numero}" /></td>
 					<td><c:out value="${p.licencia.comuna}" /></td>

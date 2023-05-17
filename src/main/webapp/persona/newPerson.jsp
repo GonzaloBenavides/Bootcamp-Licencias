@@ -21,6 +21,7 @@
 					<form:errors class="text-danger" path="nombre" />
 					<form:errors class="text-danger" path="apellido" />
 				</div>
+				
 				<div class="form-outline mb-4">
 					<form:input class="form-control" type="text" path="nombre" id="nombre" />
 					<form:label class="form-label" for="nombre" path="nombre">Nombre</form:label>
