@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/4f7f009016.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/main.css">
 <title>Licenses API</title>
 </head>
@@ -23,16 +24,18 @@
 				<th>License #</th>
 				<th>State</th>
 				<th>Expiration</th>
+				<th>Details</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="p" items="${personas}">
-				<tr>
-					<td><a href="persona/${p.id}"> <c:out value="${p.nombre}" /> </a></td>
+				<tr> 
+					<td><c:out value="${p.nombre}" /></td>
 					<td><c:out value="${p.apellido}" /></td>
 					<td><c:out value="${p.licencia.numero}" /></td>
 					<td><c:out value="${p.licencia.comuna}" /></td>
 					<td><c:out value="${p.licencia.expiracion}" /></td>
+					<td><a href="persona/${p.id}"> Check <i class="fa-regular fa-memo-circle-info"></i> </a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
